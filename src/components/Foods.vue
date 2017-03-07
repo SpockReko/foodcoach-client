@@ -14,8 +14,8 @@
 <script>
 export default {
   name: 'foods',
-  ingredients: 'gurka'
-}
+  ingredients: 'gurka',
+};
 </script>
 
 <style scoped>
