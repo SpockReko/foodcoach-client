@@ -13,7 +13,7 @@
 
 .form-control {
     background-color: $gray-input-bg;
-    border: medium none;
+    border: $border-thin solid $black-color;
     border-radius: $border-radius-base;
     color: $font-color;
     font-size: $font-size-base;
