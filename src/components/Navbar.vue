@@ -16,16 +16,10 @@
       <div class="collapse navbar-collapse" id="navigation-collapse">
         <ul class="nav navbar-nav">
           <li>
-            <a href="#" class="btn btn-primary btn-fill">Generate</a>
+            <a href="#" class="btn btn-fill">Veckomeny</a>
           </li>
           <li>
-            <a href="#" class="btn btn-success btn-fill">Foods</a>
-          </li>
-          <li>
-            <a href="#" class="btn btn-warning btn-fill">Recipes</a>
-          </li>
-          <li>
-            <a href="#" class="btn btn-secondary btn-fill">About</a>
+            <a href="#" class="btn btn-fill">Recept</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
