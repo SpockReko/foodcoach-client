@@ -40,14 +40,6 @@
 
 <script>
 export default {
-  name: 'fc-navbar',
-  data() {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-    };
-  },
+  name: 'navbar',
 };
 </script>
-
-<style scoped>
-</style>

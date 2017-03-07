@@ -1,19 +1,19 @@
 <template>
   <div id="app">
     <navbar></navbar>
-    <foods></foods>
+    <week></week>
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar';
-import Foods from './components/Foods';
+import Week from './components/Week';
 
 export default {
   name: 'app',
   components: {
     Navbar,
-    Foods,
+    Week,
   },
 };
 </script>
