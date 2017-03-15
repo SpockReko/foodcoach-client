@@ -5,37 +5,37 @@
         <h3>Fyll i din info här för att generera en veckomeny</h3>
       </div>
     </div>
-    <form>
+    <form action="http://localhost:9000/weekmenu" method="post">
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <label for="dateBorn" class="control-label">Födelsedatum:</label>
-            <input type="date" class="form-control" id="dateBorn">
+            <input type="date" class="form-control" id="dateBorn" name="dateBorn">
           </div>
           <div class="form-group">
             <label class="control-label">Kön:</label>
             <label class="radio">
-              <input type="radio" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
+              <input type="radio" data-toggle="radio" id="sex" name="sex" value="man">
               <i></i>Man
             </label>
             <label class="radio">
-              <input type="radio" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="option1" checked>
+              <input type="radio" data-toggle="radio" id="sex" name="sex" value="woman" checked>
               <i></i>Kvinna
             </label>
           </div>
           <div class="form-group">
             <label for="weight" class="control-label">Vikt:</label>
-            <input type="number" class="form-control" id="weight">
+            <input type="number" class="form-control" id="weight" name="weight">
           </div>
           <div class="form-group">
             <label for="length" class="control-label">Längd:</label>
-            <input type="number" class="form-control" id="length">
+            <input type="number" class="form-control" id="length" name="length">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="activityLevel" class="control-label">Aktivitetsnivå:</label>
-            <select class="form-control" id="activityLevel">
+            <select class="form-control" id="activityLevel" name="activityLevel">
               <option selected disabled>Välj</option>
               <option value="1.2">Liten eller ingen motion</option>
               <option value="1.375">Lätt motion (träning 1-3 dagar per vecka)</option>
@@ -46,7 +46,7 @@
           </div>
           <div class="form-group">
             <label for="goal" class="control-label">Viktpreferens:</label>
-            <select class="form-control" id="activityLevel">
+            <select class="form-control" id="goal" name="goal">
               <option selected disabled>Välj</option>
               <option value="1">Behålla vikt</option>
               <option value="2">Gå ned i vikt</option>
@@ -55,7 +55,7 @@
           </div>
           <div class="form-group">
             <label for="allergy" class="control-label">Jag vill undvika detta:</label>
-            <input type="text" class="form-control" id="allergy">
+            <input type="text" class="form-control" id="allergy" name="allergy">
           </div>
         </div>
       </div>
