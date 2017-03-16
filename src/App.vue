@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
-    <navbar></navbar>
-    <week></week>
-  </div>
+<div id="app">
+  <navbar></navbar>
+  <week></week>
+</div>
 </template>
 
 <script>
@@ -26,6 +26,4 @@ export default {
 </style>
 
 <!-- Paper Kit Stylesheet by Creative Tom -->
-<style lang="scss">
-@import './static/sass/ct-paper.scss'
-</style>
+<style lang="scss">@import './static/sass/ct-paper.scss'</style>
