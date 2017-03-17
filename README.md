@@ -1,8 +1,8 @@
 # FoodCoach-client
 
-> Frontend web-client for FoodCoach platform.
+> Front-end web-client for FoodCoach platform.
 
-This is the frontend part of the FoodCoach platform (the fancy webpage).
+This is the front-end part of the FoodCoach platform (the fancy webpage).
 
 ## vue.js
 
@@ -13,7 +13,8 @@ this [guide](https://vuejs.org/v2/guide/).
 
 ## Bootstrap 3
 
-To make the application responsive and just generally make life easier we use [Bootstrap 3](https://github.com/twbs/bootstrap) to align stuff on
+To make the application responsive and just generally make life easier we use
+[Bootstrap 3](https://github.com/twbs/bootstrap) to align stuff on
 the different pages. This takes care of moving things around depending on the
 size of the browser window (laptop, mobile, tablet etc.)
 
@@ -44,4 +45,4 @@ Since JavaScript is a complete mess the project uses
 When an error is made (if you use _"double quotation"_ instead of _'single'_
 on Strings for example), you get a big error in the browser telling you to
 correct your mistake. This is not errors that make the code not run, instead
-they are there to make to code look nice and keep a consistant style.
+they are there to make to code look nice and keep a consistent style.

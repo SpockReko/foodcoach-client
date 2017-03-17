@@ -11,7 +11,6 @@
         </button>
       <a class="navbar-brand" href="#">MatCoach</a>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navigation-collapse">
       <ul class="nav navbar-nav">
@@ -34,6 +33,6 @@
 
 <script>
 export default {
-  name: 'navbar',
+  name: 'navbar'
 };
 </script>
