@@ -35,6 +35,8 @@ module.exports = {
     }],
     // disable comma dangle (otherwise we follow airbnb)
     'comma-dangle': 'off',
+    // disable line break rule
+    'linebreak-style': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
