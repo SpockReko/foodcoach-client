@@ -72,7 +72,7 @@
 
 <script>
 export default {
-  name: 'week',
+  name: 'week-form',
 };
 </script>
 

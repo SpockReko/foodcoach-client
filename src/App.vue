@@ -1,19 +1,17 @@
 <template>
 <div id="app">
   <navbar></navbar>
-  <week></week>
+  <router-view></router-view>
 </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar';
-import Week from './components/Week';
 
 export default {
   name: 'app',
   components: {
-    Navbar,
-    Week,
+    Navbar
   },
 };
 </script>

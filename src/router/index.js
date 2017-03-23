@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Week from '@/components/Week';
+import WeekForm from '@/components/WeekForm';
+import WeekMenu from '@/components/WeekMenu';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
-    { path: '/', name: 'Week', component: Week }
+    { path: '/', component: WeekForm },
+    { path: '/result', component: WeekMenu }
   ]
 });
