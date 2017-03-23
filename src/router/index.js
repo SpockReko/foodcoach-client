@@ -7,7 +7,12 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
-    { path: '/', component: WeekForm },
-    { path: '/result', component: WeekMenu }
+    {
+      path: '/',
+      component: WeekForm
+    }, {
+      path: '/result',
+      component: WeekMenu
+    }
   ]
 });

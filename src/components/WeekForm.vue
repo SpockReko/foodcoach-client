@@ -115,11 +115,11 @@ export default {
         goal: 'Välj'
       },
       recipes: []
-    }
+    };
   },
   methods: {
     postMenu(e) {
-      let postRequest = {
+      const postRequest = {
         bornDate: this.form.bornDate,
         sex: this.form.sex,
         weight: this.form.weight,
@@ -127,11 +127,11 @@ export default {
         activityLevel: this.form.activityLevel,
         goal: this.form.goal,
         allergy: this.form.allergy
-      }
+      };
       this.showForm = false;
       this.showLoading = true;
       this.$http.post('http://localhost:9000/weekmenu', postRequest)
-        .then(response => {
+        .then((response) => {
           this.recipes = response.body;
           this.showLoading = false;
           this.showList = true;

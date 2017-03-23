@@ -33,12 +33,12 @@ export default {
   methods: {
     fetchRecipes() {
       this.$http.get('http://localhost:9000/recipes')
-        .then(response => {
+        .then((response) => {
           this.recipes = response.body;
         });
     }
   },
-  created: function() {
+  created() {
     this.fetchRecipes();
   }
 };
