@@ -10,8 +10,8 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label class="control-label">Födelsedatum:</label>
-          <input type="date" class="form-control" v-model="form.bornDate">
+          <label class="control-label">Din ålder:</label>
+          <input type="number" class="form-control" v-model="form.age">
         </div>
         <div class="form-group">
           <label class="control-label">Kön:</label>
@@ -120,7 +120,7 @@ export default {
   methods: {
     postMenu(e) {
       const postRequest = {
-        bornDate: this.form.bornDate,
+        age: this.form.age,
         sex: this.form.sex,
         weight: this.form.weight,
         length: this.form.length,
