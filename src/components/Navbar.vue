@@ -23,7 +23,8 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#" class="btn btn-danger btn-fill">Logout</a>
+          <button class="btn btn-danger btn-fill" v-on:click="logoutClick(false)" v-if="logout">Logout</button>
+          <button class="btn btn-danger btn-fill" v-on:click="logoutClick(true)" v-else="logout">Login</button>
         </li>
       </ul>
     </div>
@@ -33,6 +34,17 @@
 
 <script>
 export default {
-  name: 'navbar'
+  name: 'navbar',
+  data() {
+    return {
+      logout: false
+    };
+  },
+  methods: {
+    logoutClick(variabel) {
+      this.logout = variabel;
+    }
+  }
+
 };
 </script>
