@@ -43,6 +43,9 @@ export default {
   methods: {
     logoutClick(variabel) {
       this.logout = variabel;
+      // if (variabel){
+      //  show
+      // }
     }
   }
 

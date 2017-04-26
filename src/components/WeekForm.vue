@@ -26,11 +26,11 @@
         </div>
         <div class="form-group">
           <label class="control-label">Vikt:</label>
-          <input type="number" class="form-control" v-model="form.weight">
+          <input type="number" class="form-control" v-model="form.weight" placeholder="kg">
         </div>
         <div class="form-group">
           <label class="control-label">Längd:</label>
-          <input type="number" class="form-control" v-model="form.length">
+          <input type="number" class="form-control" v-model="form.length" placeholder="cm">
         </div>
       </div>
       <div class="col-md-6">
@@ -50,8 +50,8 @@
           <select class="form-control" v-model="form.goal">
             <option disabled>Välj</option>
             <option value="1">Behålla vikt</option>
-            <option value="2">Gå ned i vikt</option>
-            <option value="3">Gå upp i vikt</option>
+            <option value="2">Minska i vikt</option>
+            <option value="3">Öka i vikt</option>
           </select>
         </div>
         <div class="form-group">
