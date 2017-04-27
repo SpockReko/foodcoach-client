@@ -2,6 +2,7 @@
 <div id="app">
   <login></login>
    <navbar></navbar>
+   <WeekMenu></WeekMenu>
   <!-- <router-view></router-view> -->
 </div>
 </template>
@@ -9,12 +10,14 @@
 <script>
 import Navbar from './components/Navbar';
 import Login from './components/Login';
+import WeekMenu from './components/WeekMenu';
 
 export default {
   name: 'app',
   components: {
     Navbar,
-    Login
+    Login,
+    WeekMenu
   },
 };
 </script>
