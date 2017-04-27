@@ -10,6 +10,8 @@
         <h2 v-for="user in users">{{user.name}}, {{user.age}}, {{user.weight}}, {{user.length}}, {{user.activityLevel}}, {{user.goal}}</h2>
       </div>
     </div>
+    <button v-on:click="getFood">Food item 320</button>
+    <p v-for="food in foods"> her ska det sta {{foods.name}}</p>
   </div>
 </template>
 
@@ -39,10 +41,20 @@ export default {
           goal: 'Stay'
           */
         }
-      ]
+      ],
+      foods: []
     };
-  /* },
+  },
   methods: {
+    getFood() {
+      this.$http.get('http://localhost:9000/food/320')
+        .then((response) => {
+          this.foods = response.body;
+          console.log(response.body.name);
+        //  this.recipes = response.body;
+        });
+    }
+    /* DETTA ÄR JU INGEN JSON NEJ.
     fetchBob() {
       this.$http.get('http://localhost:9000/bob/menu/nutrient')
         .then((response) => {
@@ -54,13 +66,14 @@ export default {
         .then((response) => {
           this.recipes = response.body;
         });
-    }
-  },
+    } */
+  }, /*
   created() {
-    this.fetchBob();
-    this.fetchAlice();
-  } */
-  },
+    this.getFood();
+    // this.fetchBob();
+    // this.fetchAlice();
+  }, */
+
 };
 </script>
 
