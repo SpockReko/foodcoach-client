@@ -11,7 +11,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label class="control-label">Username:</label>
-          <input type="string" class="form-control" v-model="form.userName">
+          <input type="text" class="form-control" v-model="userName2">
         </div>
         <div class="form-group">
           <label class="control-label">Din ålder:</label>
@@ -69,6 +69,9 @@
         <button type="submit" class="btn btn-fill btn-success btn-lg pull-right">
             Generera veckomeny
           </button>
+          <button v-on:click="olofNoob" class="btn btn-fill btn-success btn-lg pull-left">
+              Nooblof
+            </button>
       </div>
     </div>
   </form>
@@ -113,12 +116,14 @@ export default {
       showForm: true,
       showLoading: false,
       showList: false,
+      userName2: '',
       form: {
         sex: 'FEMALE',
         activityLevel: 'Välj',
         goal: 'Välj'
       },
-      recipes: []
+      recipes: [],
+      users: []
     };
   },
   methods: {
@@ -133,17 +138,27 @@ export default {
         goal: this.form.goal
         // allergy: this.form.allergy
       };
-      console.log(postRequest);
+      console.log(postRequest.userName);
       this.showForm = false;
       this.showLoading = true;
-      this.$http.post('http://localhost:9000/weekmenu', postRequest)
+      this.$http.get(`http://localhost:9000/user/name/${this.postRequest.userName}`)
         .then((response) => {
+          console.log(response);
           this.recipes = response.body;
           this.showLoading = false;
           this.showList = true;
         });
       e.preventDefault();
-    }
+    },
+    olofNoob() {
+      this.$http.get(`http://localhost:9000/user/name/${this.userName2}`)
+      .then((response) => {
+        console.log(response);
+        this.users = response.body;
+        this.showLoading = false;
+        this.showList = true;
+      });
+    },
   }
 };
 </script>
