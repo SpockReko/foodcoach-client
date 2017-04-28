@@ -18,13 +18,13 @@
           <a href="#" class="btn btn-fill">Veckomeny</a>
         </li>
         <li>
-          <a href="#" class="btn btn-fill">Recept</a>
+          <a href="#/result" class="btn btn-fill">Recept</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <button class="btn btn-danger btn-fill" v-on:click="logoutClick(false)" v-if="logout">Logout</button>
-          <button class="btn btn-danger btn-fill" v-on:click="logoutClick(true)" v-else="logout">Login</button>
+          <a href="#/login" class="btn btn-danger btn-fill" v-on:click="logoutClick(false)" v-if="logout">Logout</a>
+          <a href="#/logout" class="btn btn-danger btn-fill" v-on:click="logoutClick(true)" v-else="logout">Login</a>
         </li>
       </ul>
     </div>
@@ -43,9 +43,6 @@ export default {
   methods: {
     logoutClick(variabel) {
       this.logout = variabel;
-      // if (variabel){
-      //  show
-      // }
     }
   }
 

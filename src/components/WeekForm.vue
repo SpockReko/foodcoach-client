@@ -10,30 +10,34 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
+          <label class="control-label">Username:</label>
+          <input type="string" class="form-control" v-model="form.userName">
+        </div>
+        <div class="form-group">
           <label class="control-label">Din ålder:</label>
           <input type="number" class="form-control" v-model="form.age">
         </div>
         <div class="form-group">
           <label class="control-label">Kön:</label>
           <label class="radio">
-              <input type="radio" data-toggle="radio" id="sex" name="sex" value="man" v-model="form.sex">
+              <input type="radio" data-toggle="radio" id="sex" name="sex" value="MALE" v-model="form.sex">
               <i></i>Man
             </label>
           <label class="radio">
-              <input type="radio" data-toggle="radio" id="sex" name="sex" value="woman" v-model="form.sex">
+              <input type="radio" data-toggle="radio" id="sex" name="sex" value="FEMALE" v-model="form.sex">
               <i></i>Kvinna
             </label>
-        </div>
-        <div class="form-group">
-          <label class="control-label">Vikt:</label>
-          <input type="number" class="form-control" v-model="form.weight" placeholder="kg">
-        </div>
-        <div class="form-group">
-          <label class="control-label">Längd:</label>
-          <input type="number" class="form-control" v-model="form.length" placeholder="cm">
+            <div class="form-group">
+              <label class="control-label">Vikt:</label>
+              <input type="number" class="form-control" v-model="form.weight" placeholder="kg">
+            </div>
         </div>
       </div>
       <div class="col-md-6">
+        <div class="form-group">
+          <label class="control-label">Längd:</label>
+          <input type="number" class="form-control" v-model="form.height" placeholder="cm">
+        </div>
         <div class="form-group">
           <label class="control-label">Aktivitetsnivå:</label>
           <select class="form-control" v-model="form.activityLevel">
@@ -49,15 +53,15 @@
           <label class="control-label">Viktpreferens:</label>
           <select class="form-control" v-model="form.goal">
             <option disabled>Välj</option>
-            <option value="1">Behålla vikt</option>
-            <option value="2">Minska i vikt</option>
-            <option value="3">Öka i vikt</option>
+            <option value="STAY">Behålla vikt</option>
+            <option value="DECREASE">Minska i vikt</option>
+            <option value="INCREASE">Öka i vikt</option>
           </select>
         </div>
-        <div class="form-group">
+      <!--  <div class="form-group">
           <label class="control-label">Jag vill undvika detta:</label>
           <input type="text" class="form-control" v-model="form.allergy">
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="row">
@@ -110,7 +114,7 @@ export default {
       showLoading: false,
       showList: false,
       form: {
-        sex: 'woman',
+        sex: 'FEMALE',
         activityLevel: 'Välj',
         goal: 'Välj'
       },
@@ -120,14 +124,16 @@ export default {
   methods: {
     postMenu(e) {
       const postRequest = {
+        userName: this.form.userName,
         age: this.form.age,
         sex: this.form.sex,
         weight: this.form.weight,
-        length: this.form.length,
+        height: this.form.height,
         activityLevel: this.form.activityLevel,
-        goal: this.form.goal,
-        allergy: this.form.allergy
+        goal: this.form.goal
+        // allergy: this.form.allergy
       };
+      console.log(postRequest);
       this.showForm = false;
       this.showLoading = true;
       this.$http.post('http://localhost:9000/weekmenu', postRequest)
