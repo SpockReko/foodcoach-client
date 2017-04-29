@@ -10,8 +10,8 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label class="control-label">Username:</label>
-          <input type="text" class="form-control" v-model="userName2">
+          <label class="control-label">firstName:</label>
+          <input type="text" class="form-control" v-model="form.firstName">
         </div>
         <div class="form-group">
           <label class="control-label">Din ålder:</label>
@@ -129,7 +129,7 @@ export default {
   methods: {
     postMenu(e) {
       const postRequest = {
-        userName: this.form.userName,
+        firstName: this.form.firstName,
         age: this.form.age,
         sex: this.form.sex,
         weight: this.form.weight,
@@ -138,13 +138,13 @@ export default {
         goal: this.form.goal
         // allergy: this.form.allergy
       };
-      console.log(postRequest.userName);
+      console.log(postRequest);
       this.showForm = false;
       this.showLoading = true;
-      this.$http.get(`http://localhost:9000/user/name/${this.postRequest.userName}`)
+      this.$http.post('http://localhost:9000/user/add', postRequest)
         .then((response) => {
           console.log(response);
-          this.recipes = response.body;
+          this.users = response.body;
           this.showLoading = false;
           this.showList = true;
         });
