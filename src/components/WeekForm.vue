@@ -10,6 +10,10 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
+          <label class="control-label">id:</label>
+          <input type="number" class="form-control" v-model="form.id">
+        </div>
+        <div class="form-group">
           <label class="control-label">firstName:</label>
           <input type="text" class="form-control" v-model="form.firstName">
         </div>
@@ -129,6 +133,7 @@ export default {
   methods: {
     postMenu(e) {
       const postRequest = {
+        id: this.form.id,
         firstName: this.form.firstName,
         age: this.form.age,
         sex: this.form.sex,
