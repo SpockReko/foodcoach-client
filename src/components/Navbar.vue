@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navigation-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#" class="btn btn-fill">Veckomeny</a>
+          <a href="#/optrecipe" class="btn btn-fill">Veckomeny</a>
         </li>
         <li>
           <a href="#/result" class="btn btn-fill">Recept</a>

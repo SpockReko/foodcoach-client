@@ -1,8 +1,16 @@
 <template>
   <div class="container">
     <h1>Select user</h1>
-    <input type="text" class="form-control" placeholder="Enter name" v-model="getUser">
-    <button v-on:click="startGetUser">Get user!</button>
+    <div class="row">
+      <div class="col-md-6">
+        <p> Sök efter existerande använadre </p>
+        <input type="text" class="form-control" placeholder="Enter name" v-model="getUser">
+        <button v-on:click="startGetUser">Hämta användare</button>
+      </div>
+      <div class="col-md-6">
+        <a href="#/" class="btn btn-fill btn-success btn-lg pull-right">Skapa användare</a>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-3">
         <h2 id="titel">Name: <br> Age: <br> Sex: <br> Weight: <br> height: <br>ActivityL: <br>Goals: </h2>
@@ -18,8 +26,10 @@
         <h2>{{usersBob.name}} <br> {{usersBob.age}} <br> {{usersBob.sex}} <br> {{usersBob.weight}} <br> {{usersBob.height}} <br> {{usersBob.activityLevel}} <br> {{usersBob.goal}} <br> </h2>
       </div>
     </div>
+
   </div>
 </template>
+
 
 <script>
 export default {
@@ -36,7 +46,7 @@ export default {
   },
   methods: {
     startGetUser() {
-      this.lookupAlice();
+      this.lookupAlice(); // är inte allt detta onödigt?
       this.showNewUser = true;
     },
     lookupAlice() {

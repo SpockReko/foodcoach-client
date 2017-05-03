@@ -31,13 +31,14 @@
               <input type="radio" data-toggle="radio" id="sex" name="sex" value="FEMALE" v-model="form.sex">
               <i></i>Kvinna
             </label>
-            <div class="form-group">
-              <label class="control-label">Vikt:</label>
-              <input type="number" class="form-control" v-model="form.weight" placeholder="kg">
-            </div>
+
         </div>
       </div>
       <div class="col-md-6">
+        <div class="form-group">
+          <label class="control-label">Vikt:</label>
+          <input type="number" class="form-control" v-model="form.weight" placeholder="kg">
+        </div>
         <div class="form-group">
           <label class="control-label">Längd:</label>
           <input type="number" class="form-control" v-model="form.height" placeholder="cm">
@@ -73,9 +74,6 @@
         <button type="submit" class="btn btn-fill btn-success btn-lg pull-right">
             Generera veckomeny
           </button>
-          <button v-on:click="olofNoob" class="btn btn-fill btn-success btn-lg pull-left">
-              Nooblof
-            </button>
       </div>
     </div>
   </form>
@@ -120,7 +118,6 @@ export default {
       showForm: true,
       showLoading: false,
       showList: false,
-      userName2: '',
       form: {
         sex: 'FEMALE',
         activityLevel: 'Välj',
@@ -154,15 +151,6 @@ export default {
           this.showList = true;
         });
       e.preventDefault();
-    },
-    olofNoob() {
-      this.$http.get(`http://localhost:9000/user/name/${this.userName2}`)
-      .then((response) => {
-        console.log(response);
-        this.users = response.body;
-        this.showLoading = false;
-        this.showList = true;
-      });
     },
   }
 };

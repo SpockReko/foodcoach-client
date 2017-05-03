@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import WeekForm from '@/components/WeekForm';
 import WeekMenu from '@/components/WeekMenu';
 import Login from '@/components/Login';
+import Optrecipe from '@/components/Optrecipe';
 
 Vue.use(Router);
 
@@ -17,6 +18,9 @@ export default new Router({
     }, {
       path: '/login',
       component: Login
+    }, {
+      path: '/optrecipe',
+      component: Optrecipe
     }
   ]
 });
