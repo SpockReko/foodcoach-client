@@ -5,7 +5,7 @@
       <div class="col-md-6">
         <p> Sök efter existerande använadre </p>
         <input type="text" class="form-control" placeholder="Enter name" v-model="getUser">
-        <button v-on:click="startGetUser">Hämta användare</button>
+        <button class="btn btn-fill btn-success btn-lg" v-on:click="startGetUser">Hämta användare</button>
       </div>
       <div class="col-md-6">
         <a href="#/" class="btn btn-fill btn-success btn-lg pull-right">Skapa användare</a>

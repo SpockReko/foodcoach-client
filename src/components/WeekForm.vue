@@ -9,10 +9,10 @@
   <form v-on:submit="postMenu">
     <div class="row">
       <div class="col-md-6">
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label class="control-label">id:</label>
           <input type="number" class="form-control" v-model="form.id">
-        </div>
+        </div> -->
         <div class="form-group">
           <label class="control-label">firstName:</label>
           <input type="text" class="form-control" v-model="form.firstName">
@@ -72,7 +72,7 @@
     <div class="row">
       <div class="col-lg-12">
         <button type="submit" class="btn btn-fill btn-success btn-lg pull-right">
-            Generera veckomeny
+            Lägg till användare
           </button>
       </div>
     </div>
@@ -130,7 +130,7 @@ export default {
   methods: {
     postMenu(e) {
       const postRequest = {
-        id: this.form.id,
+        // id: this.form.id,
         firstName: this.form.firstName,
         age: this.form.age,
         sex: this.form.sex,
