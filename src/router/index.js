@@ -4,6 +4,7 @@ import WeekForm from '@/components/WeekForm';
 import WeekMenu from '@/components/WeekMenu';
 import Login from '@/components/Login';
 import Optrecipe from '@/components/Optrecipe';
+import GenWeekMenu from '@/components/GenWeekMenu';
 
 Vue.use(Router);
 
@@ -21,6 +22,9 @@ export default new Router({
     }, {
       path: '/optrecipe',
       component: Optrecipe
+    }, {
+      path: '/genWeekMenu',
+      component: GenWeekMenu
     }
   ]
 });

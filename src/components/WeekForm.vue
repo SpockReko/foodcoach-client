@@ -14,11 +14,11 @@
           <input type="number" class="form-control" v-model="form.id">
         </div> -->
         <div class="form-group">
-          <label class="control-label">firstName:</label>
+          <label class="control-label">Användarnamn:</label>
           <input type="text" class="form-control" v-model="form.firstName">
         </div>
         <div class="form-group">
-          <label class="control-label">Din ålder:</label>
+          <label class="control-label">Ålder:</label>
           <input type="number" class="form-control" v-model="form.age">
         </div>
         <div class="form-group">
@@ -130,7 +130,7 @@ export default {
   methods: {
     postMenu(e) {
       const postRequest = {
-        // id: this.form.id,
+        id: this.form.id,
         firstName: this.form.firstName,
         age: this.form.age,
         sex: this.form.sex,

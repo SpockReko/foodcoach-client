@@ -9,22 +9,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-      <a class="navbar-brand" href="#">MatCoach</a>
+      <a class="navbar-brand" href="#/result">MatCoach</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navigation-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#/optrecipe" class="btn btn-fill">Veckomeny</a>
+          <a href="#/genWeekMenu" class="btn btn-fill">Veckomeny</a>
         </li>
         <li>
-          <a href="#/result" class="btn btn-fill">Recept</a>
+          <a href="#/Optrecipe" class="btn btn-fill">Optimera Recept</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <a href="#/login" class="btn btn-danger btn-fill" v-on:click="logoutClick(false)" v-if="logout">Logout</a>
-          <a href="#/logout" class="btn btn-danger btn-fill" v-on:click="logoutClick(true)" v-else="logout">Login</a>
+          <a href="#/result" class="btn btn-danger btn-fill" v-on:click="logoutClick(true)" v-else="logout">Login</a>
         </li>
       </ul>
     </div>
