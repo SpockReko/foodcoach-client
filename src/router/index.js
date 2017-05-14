@@ -5,6 +5,7 @@ import WeekMenu from '@/components/WeekMenu';
 import Login from '@/components/Login';
 import Optrecipe from '@/components/Optrecipe';
 import GenWeekMenu from '@/components/GenWeekMenu';
+import AddRecipe from '@/components/AddRecipe';
 
 Vue.use(Router);
 
@@ -25,6 +26,9 @@ export default new Router({
     }, {
       path: '/genWeekMenu',
       component: GenWeekMenu
+    }, {
+      path: '/addRecipe',
+      component: AddRecipe
     }
   ]
 });

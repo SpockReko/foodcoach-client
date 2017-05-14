@@ -31,9 +31,9 @@
               <input type="radio" data-toggle="radio" id="sex" name="sex" value="FEMALE" v-model="form.sex">
               <i></i>Kvinna
             </label>
-
         </div>
       </div>
+
       <div class="col-md-6">
         <div class="form-group">
           <label class="control-label">Vikt:</label>

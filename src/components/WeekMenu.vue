@@ -1,6 +1,15 @@
 <template>
 <div class="container">
   <div class="row">
+    <div class="col-lg-12">
+      <h1>Välkommen till MatCoachen</h1>
+      <p>MatCoachen kan optimera ett recept eller generera en meny utifrån hälsa</p>
+      <p>Lägg till en ny användare, ett recept du vill optimera eller välj något
+        av våra tusentals recpt </p>
+    </div>
+
+  </div>
+  <!-- <div class="row">
     <div class="col-md-12">
       <h3>Här är din veckomeny</h3>
       <table class="table table-striped">
@@ -18,7 +27,7 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </div> -->
 </div>
 </template>
 

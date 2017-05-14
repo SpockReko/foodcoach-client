@@ -9,14 +9,19 @@
     <div class="col-md-6">
       <!-- <p> Välj recept </p>
       <input type="text" class="form-control" placeholder="Sök" v-model="getNumber"> -->
-      <label class="control-label"> Välj recept</label>
-      <select class="form-control" v-model="getRecipe">
-        <option disabled>Välj</option>
-        <option v-for="recipe in recipes">{{recipe.title}}</option>
-      </select>
+      <div class="form-group">
+        <label class="control-label"> Välj recept</label>
+        <select class="form-control" v-model="getRecipe">
+          <option disabled>Välj</option>
+          <option v-for="recipe in recipes">{{recipe.title}}</option>
+        </select>
+      </div>
 
 
-      <button class="btn btn-fill btn-success btn-lg pull-right" v-on:click="receptOpti" >Optimera</button>
+      <div class="form-group">
+        <button class="btn btn-fill btn-success btn-lg pull-right" v-on:click="receptOpti" >Optimera</button>
+      </div>
+
     </div>
   </div>
 <div class="row" v-if="showOptRecipe">

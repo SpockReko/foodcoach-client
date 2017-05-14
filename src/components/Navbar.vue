@@ -8,6 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
       <a class="navbar-brand" href="#/result">MatCoach</a>
     </div>
@@ -15,10 +16,13 @@
     <div class="collapse navbar-collapse" id="navigation-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#/genWeekMenu" class="btn btn-fill">Veckomeny</a>
+          <a href="#/GenWeekMenu" class="btn btn-fill">Veckomeny</a>
         </li>
         <li>
           <a href="#/Optrecipe" class="btn btn-fill">Optimera Recept</a>
+        </li>
+        <li>
+          <a href="#/AddRecipe" class="btn btn-fill">Lägg till recept</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
