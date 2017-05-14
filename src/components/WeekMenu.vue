@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1>Välkommen till MatCoachen</h1>
+      <h1 class="text-success">Välkommen till MatCoachen</h1>
       <p>MatCoachen kan optimera ett recept eller generera en meny utifrån hälsa</p>
       <p>Lägg till en ny användare, ett recept du vill optimera eller välj något
         av våra tusentals recpt </p>
@@ -53,4 +53,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+#info{
+  class: text-success;
+}
+
+</style>

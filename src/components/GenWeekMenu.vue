@@ -4,18 +4,19 @@
     <h3>Generera en meny</h3>
     <div class="col-md-6">
       <p> Användarnamn </p>
-      <input type="text" class="form-control" placeholder="Enter name" v-model="getUser">
+      <input type="text" class="form-control" placeholder="Enter name" v-model="getUser" v-on:keyup.enter="receptOpti">
     </div>
     <div class="col-md-6">
       <div class="form-group">
         <p> Antal recept </p>
-        <input type="text" class="form-control" placeholder="" v-model="getNumber">
+        <input type="text" class="form-control" placeholder="" v-model="getNumber" v-on:keyup.enter="receptOpti">
       </div>
       <div class="form-group">
         <button class="btn btn-fill btn-success btn-lg pull-right" v-on:click="receptOpti" >Generera</button>
       </div>
     </div>
   </div>
+
   <div class="row" v-if="showGenMenu">
     <div class="col-md-3">
       <p id="titel">Recept</p>

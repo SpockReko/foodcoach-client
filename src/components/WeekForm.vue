@@ -56,7 +56,7 @@
         </div>
         <div class="form-group">
           <label class="control-label">Viktpreferens:</label>
-          <select class="form-control" v-model="form.goal">
+          <select class="form-control" v-model="form.goal" v-on:keyup.enter="submit">
             <option disabled>Välj</option>
             <option value="STAY">Behålla vikt</option>
             <option value="DECREASE">Minska i vikt</option>

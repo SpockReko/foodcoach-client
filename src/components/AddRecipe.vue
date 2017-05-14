@@ -5,7 +5,8 @@
     <div class="col-md-6">
       <div class="form-group">
         <p> URL </p>
-        <input type="text" class="form-control" placeholder="klistra in url" v-model="getURL">
+        <input type="text" class="form-control" placeholder="klistra in url" v-model="getURL"
+        v-on:keyup.enter="addRecipe">
       </div>
     </div>
     <div class="col-md-6">
@@ -15,7 +16,27 @@
       </div>
     </div>
   </div>
+
   <div class="row" v-if="showSuccess">
+    <div class="col-md-12">
+      <h3>{{recipes.title}}</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Ingredienser</th>
+            <th>Mängd</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="ingredient in ingredients">
+            <td>{{ingredient.food.name}}</td>
+            <td>{{Math.round(ingredient.amount.quantity)}} {{ingredient.amount.unit}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- <div class="row" v-if="showSuccess">
       <p id="titel" >{{recipes.title}} </p>
       <div class="col-md-6">
       <p id="titel" >Ingredienser</p>
@@ -25,7 +46,7 @@
       <p id="titel" >Mängd</p>
       <p v-for="ingredient in ingredients"> {{Math.round(ingredient.amount.quantity)}} {{ingredient.amount.unit}}</p>
     </div>
-  </div>
+  </div> -->
   <div class="row" v-if="showSuccess">
     <div class="col-sm-2">
       <p id="titel">Kcal: </p>
@@ -47,7 +68,6 @@
       <p id="titel">Koldioxid: </p>
       <p>{{recipes.co2PerPortion / 100}}kg</p>
     </div>
-  </div>
   </div>
 
 </div>
