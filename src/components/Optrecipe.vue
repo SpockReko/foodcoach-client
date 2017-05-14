@@ -27,7 +27,7 @@
   </div>
   <div class="row" v-if="showOptRecipe">
     <div class="col-md-12">
-      <h3 class="text-warning">{{optrecipes.title}}</h3>
+      <h3 class="text-warning">{{optrecipes.title}}, {{optrecipes.portions}} portioner</h3>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -103,15 +103,13 @@ export default {
           console.log(response);
           this.optrecipes = response.body;
           this.ingredients = response.body.ingredients;
-          // this.foods = response.body.ingredients[0].food;
-          console.log(response.body.ingredients);
+          console.log(response.ingredients);
         });
     },
     fetchRecipes() {
       this.$http.get('http://localhost:9000/recipes')
         .then((response) => {
           this.recipes = response.body;
-          console.log(response.body);
         });
     }
   },

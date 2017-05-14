@@ -19,7 +19,7 @@
 
   <div class="row" v-if="showSuccess">
     <div class="col-md-12">
-      <h3>{{recipes.title}}</h3>
+      <h3>{{recipes.title}}, {{recipes.portions}} portioner</h3>
       <table class="table table-striped">
         <thead>
           <tr>
