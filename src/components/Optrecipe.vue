@@ -58,19 +58,11 @@
 <!-- Math.round(({{optrecipes.fat * 9}} / {{optrecipes.energyKcal}} * 100) / 100) -->
 <div class="row" v-if="showOptRecipe">
   <div class="progress">
-
-    <div id="protein" class="progress-bar progress-bar-danger"
-    :style="{width: protein + transp + '%'}">
-    <!-- {{protein}}E% -->
-      <!-- <span class="sr-only">50% Complete (danger)</span> -->
+    <div class="progress-bar progress-bar-danger":style="{width: protein + transp + '%'}">
     </div>
-
-    <div id="carbs" class="progress-bar progress-bar-info" :style="{width: carbs + transp + '%'}">
-      <!-- <span class="sr-only">10% Complete (success)</span> -->
+    <div class="progress-bar progress-bar-info" :style="{width: carbs + transp + '%'}">
     </div>
-
-    <div id="fat" class="progress-bar progress-bar-warning" :style="{width: fat + transp + '%'}">
-      <!-- <span class="sr-only">15% Complete (success)</span> -->
+    <div class="progress-bar progress-bar-warning" :style="{width: fat + transp + '%'}">
     </div>
   </div>
   <div class="col-sm-2">
@@ -94,6 +86,40 @@
     <p>{{optrecipes.co2PerPortion / 100}}kg</p>
   </div>
 </div>
+<div class="row" v-if="showOptRecipe">
+    <h3 class="text-primary">Vitamin behov för {{users.name}} </h3>
+    <div class="col-md-8">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Vitamin</th>
+            <th>RDI</th>
+            <th>Procent uppfyllt</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr v-for="nutrient in nutrients">
+                <td >{{nutrient.name}}</td>
+                <td >{{Math.round(nutrient.amount)}} {{nutrient.unit}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Receptet innehåller</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="optNutrient in optNutrients">
+            <td >{{Math.round(optNutrient.amount)}} {{optNutrient.unit}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
 </div>
 </template>
 
@@ -112,6 +138,9 @@ export default {
       optrecipes: [],
       ingredients: [],
       recipes: [],
+      users: [],
+      nutrients: [],
+      optNutrients: [],
       fat: '',
       carbs: '',
       protein: '',
@@ -123,9 +152,10 @@ export default {
       this.showOptRecipe = true;
       this.$http.get(`http://localhost:9000/recipe/optimize/user/${this.getRecipe}?userName=${this.getUser}`)
         .then((response) => {
-          console.log(response);
           this.optrecipes = response.body;
           this.ingredients = response.body.ingredients;
+          this.optNutrients = response.body.nutrients;
+          console.log(this.optNutrients);
           if (this.optrecipes.portions > 1) { this.plural = 'er'; }
           this.fat = ((this.optrecipes.fat * 9) /
           this.optrecipes.energyKcal) * 100;
@@ -136,6 +166,12 @@ export default {
           this.transp = (100 - (this.carbs + this.fat + this.protein)) / 3;
           console.log(response.ingredients);
         });
+      this.$http.get(`http://localhost:9000/user/name/${this.getUser}`)
+          .then((response) => {
+            this.users = response.body;
+            this.nutrients = response.body.nutrients;
+            console.log(response.body);
+          });
     },
     fetchRecipes() {
       this.$http.get('http://localhost:9000/recipes')
