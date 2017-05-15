@@ -1,5 +1,6 @@
 <template>
 <!-- Choose component -->
+<div>
 <div v-if="showForm" class="container">
   <div class="row">
     <div class="col-md-12">
@@ -23,15 +24,23 @@
         </div>
         <div class="form-group">
           <label class="control-label">Kön:</label>
-          <label class="radio">
-              <input type="radio" data-toggle="radio" id="sex" name="sex" value="MALE" v-model="form.sex">
-              <i></i>Man
-            </label>
-          <label class="radio">
-              <input type="radio" data-toggle="radio" id="sex" name="sex" value="FEMALE" v-model="form.sex">
-              <i></i>Kvinna
-            </label>
+          <select class="form-control" v-model="form.sex">
+            <option disabled>Välj</option>
+            <option value="MALE">Man</option>
+            <option value="FEMALE">Kvinna</option>
+          </select>
         </div>
+        <!-- <div class="form-group">
+          <label class="control-label">Kön:</label>
+          <label class="radio">
+              <input type="radio" id="male" v-bind:value="MALE" name="sex" value="MALE" v-model="form.sex">
+              <label for="male">Man</label>
+            </label>
+          <label class="radio">
+              <input type="radio" v-bind:value="FEMALE" id="female" name="sex" value="FEMALE" v-model="form.sex">
+              <label for="female">Kvinna</label>
+            </label>
+        </div> -->
       </div>
 
       <div class="col-md-6">
@@ -80,14 +89,15 @@
 </div>
 
 <!-- Loading component -->
-<div v-else-if="showLoading" class="container">
+<div v-if="showLoading" class="container">
   <div class="row">
-    <h3 class="text-center">Laddar...</h3>
+    <h2 class="text-center text-danger">Användare tillagd</h2>
   </div>
+</div>
 </div>
 
 <!-- View component -->
-<div v-else-if="showList" class="container">
+<!-- <div v-else-if="showList" class="container">
   <div class="row">
     <div class="col-md-12">
       <h3>Här är din veckomeny</h3>
@@ -107,7 +117,8 @@
       </table>
     </div>
   </div>
-</div>
+</div> -->
+
 </template>
 
 <script>
@@ -119,7 +130,7 @@ export default {
       showLoading: false,
       showList: false,
       form: {
-        sex: 'FEMALE',
+        // sex: '',
         activityLevel: 'Välj',
         goal: 'Välj'
       },
@@ -147,8 +158,8 @@ export default {
         .then((response) => {
           console.log(response);
           this.users = response.body;
-          this.showLoading = false;
-          this.showList = true;
+          this.showLoading = true;
+          // this.showList = true;
         });
       e.preventDefault();
     },

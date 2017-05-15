@@ -77,8 +77,8 @@ export default {
 
   },
   created() {
-    this.fetchBob();
-    this.fetchAlice();
+    // this.fetchBob();
+    // this.fetchAlice();
   },
 
 };
