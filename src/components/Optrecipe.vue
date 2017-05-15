@@ -5,7 +5,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <p> Användarnamn </p>
-        <input type="text" class="form-control" placeholder="Enter name"
+        <input type="text" class="form-control" placeholder="Ange användarnamn"
         v-model="getUser" v-on:keyup.enter="receptOpti">
       </div>
     </div>
@@ -27,7 +27,7 @@
   </div>
   <div class="row" v-if="showOptRecipe">
     <div class="col-md-12">
-      <h3 class="text-warning">{{optrecipes.title}}, {{optrecipes.portions}} portioner</h3>
+      <h3 class="text-primary">{{optrecipes.title}}, {{optrecipes.portions}} portion{{plural}} </h3>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -38,7 +38,7 @@
         <tbody>
           <tr v-for="ingredient in ingredients">
             <td>{{ingredient.food.name}}</td>
-            <td>{{Math.round(ingredient.amount.quantity)}} {{ingredient.amount.unit}}</td>
+            <td>{{Math.round(ingredient.amount.quantity * 10) / 10}} {{ingredient.amount.unit}}</td>
           </tr>
         </tbody>
       </table>
@@ -55,21 +55,38 @@
     <p v-for="ingredient in ingredients"> {{Math.round(ingredient.amount.quantity)}} {{ingredient.amount.unit}}</p>
   </div>
 </div> -->
+<!-- Math.round(({{optrecipes.fat * 9}} / {{optrecipes.energyKcal}} * 100) / 100) -->
 <div class="row" v-if="showOptRecipe">
+  <div class="progress">
+
+    <div id="protein" class="progress-bar progress-bar-danger"
+    :style="{width: protein + transp + '%'}">
+    <!-- {{protein}}E% -->
+      <!-- <span class="sr-only">50% Complete (danger)</span> -->
+    </div>
+
+    <div id="carbs" class="progress-bar progress-bar-info" :style="{width: carbs + transp + '%'}">
+      <!-- <span class="sr-only">10% Complete (success)</span> -->
+    </div>
+
+    <div id="fat" class="progress-bar progress-bar-warning" :style="{width: fat + transp + '%'}">
+      <!-- <span class="sr-only">15% Complete (success)</span> -->
+    </div>
+  </div>
   <div class="col-sm-2">
-    <p id="titel" class="text-danger">Kcal: </p>
+    <p id="titel" class="text-primary">Kcal: </p>
     <p>{{optrecipes.energyKcal}}kcal</p>
   </div>
   <div class="col-sm-2">
-    <p id="titel" class="text-danger">Protein: </p>
+    <p id="titel" class="text-danger">Protein: {{Math.round(protein + transp)}} E% </p>
     <p>{{optrecipes.protein}}g</p>
   </div>
   <div class="col-sm-2">
-    <p id="titel" class="text-danger">Kolhydrater: </p>
+    <p id="titel" class="text-info">Kolhydrater: {{Math.round(carbs+ transp)}} E%</p>
     <p>{{optrecipes.carbohydrates}}g</p>
   </div>
   <div class="col-sm-2">
-    <p id="titel" class="text-danger">Fett: </p>
+    <p id="titel" class="text-warning">Fett: {{Math.round(fat + transp)}} E%</p>
     <p>{{optrecipes.fat}}g</p>
   </div>
   <div class="col-sm-2">
@@ -81,18 +98,24 @@
 </template>
 
 <script>
+// document.getElementById('fat').style.width =
+// Math.round((this.optrecipes.fat * 9 / this.optrecipes.energyKcal * 100));
+// document.getElementById('fat').style.width = '35%';
 export default {
   name: 'optrecipe',
   data() {
     return {
+      plural: '',
       showOptRecipe: false,
       getUser: '',
-      // getNumber: '',
       getRecipe: '',
       optrecipes: [],
       ingredients: [],
       recipes: [],
-      // foods [],
+      fat: '',
+      carbs: '',
+      protein: '',
+      transp: '',
     };
   },
   methods: {
@@ -103,6 +126,14 @@ export default {
           console.log(response);
           this.optrecipes = response.body;
           this.ingredients = response.body.ingredients;
+          if (this.optrecipes.portions > 1) { this.plural = 'er'; }
+          this.fat = ((this.optrecipes.fat * 9) /
+          this.optrecipes.energyKcal) * 100;
+          this.protein = ((this.optrecipes.protein * 4) /
+          this.optrecipes.energyKcal) * 100;
+          this.carbs = ((this.optrecipes.carbohydrates * 4) /
+          this.optrecipes.energyKcal) * 100;
+          this.transp = (100 - (this.carbs + this.fat + this.protein)) / 3;
           console.log(response.ingredients);
         });
     },
@@ -116,6 +147,13 @@ export default {
   created() {
     this.fetchRecipes();
   },
+  // fatpercentage(value) {
+  //   return ((value / this.optrecipes.energyKcal) * 100);
+    // console.log(5 * 9);
+    // return ((this.optrecipes.fat * 9) / this.optrecipes.energyKcal) * 100;
+
+    // Math.round(( this.optrecipes.fat * 9 / this.optrecipes.energyKcal * 100));
+  // },
 };
 
 </script>
@@ -125,5 +163,6 @@ export default {
 #titel {
   font-weight: bold;
 }
+
 
 </style>

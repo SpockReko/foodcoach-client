@@ -5,7 +5,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <p> Sök efter existerande använadre </p>
-          <input type="text" v-on:keyup.enter="startGetUser" class="form-control" placeholder="Enter name" v-model="getUser">
+          <input type="text" v-on:keyup.enter="startGetUser" class="form-control" placeholder="Ange användarnamn" v-model="getUser">
         </div>
         <div class="form-group">
           <button class="btn btn-fill btn-success btn-lg" v-on:click="startGetUser" >Hämta användare</button>

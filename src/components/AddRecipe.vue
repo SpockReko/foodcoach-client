@@ -19,7 +19,7 @@
 
   <div class="row" v-if="showSuccess">
     <div class="col-md-12">
-      <h3>{{recipes.title}}, {{recipes.portions}} portioner</h3>
+      <h3>{{recipes.title}}, {{recipes.portions}} portion{{plural}}</h3>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -82,10 +82,10 @@ export default {
   name: 'addRecipe',
   data() {
     return {
+      plural: '',
       message: 'Lägg till',
       showSuccess: false,
       getURL: '',
-      // menus: [],
       recipes: [],
       ingredients: [],
     };
@@ -98,6 +98,7 @@ export default {
           console.log(response.body);
           this.recipes = response.body;
           this.ingredients = response.body.ingredients;
+          if (this.recipes.portions > 1) { this.plural = 'er'; }
           // console.log(response.body.ingredients);
         });
     },

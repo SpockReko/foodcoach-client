@@ -4,7 +4,7 @@
     <h3>Generera en meny</h3>
     <div class="col-md-6">
       <p> Användarnamn </p>
-      <input type="text" class="form-control" placeholder="Enter name" v-model="getUser" v-on:keyup.enter="receptOpti">
+      <input type="text" class="form-control" placeholder="Ange användarnamn" v-model="getUser" v-on:keyup.enter="receptOpti">
     </div>
     <div class="col-md-6">
       <div class="form-group">
