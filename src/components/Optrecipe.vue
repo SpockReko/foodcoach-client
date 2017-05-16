@@ -87,14 +87,14 @@
   </div>
 </div>
 <div class="row" v-if="showOptRecipe">
-    <h3 class="text-primary">Vitamin behov för {{users.name}} </h3>
+    <h3 class="text-primary">Vitaminbehov för {{users.name}} </h3>
     <div class="col-md-8">
       <table class="table table-striped">
         <thead>
           <tr>
             <th>Vitamin</th>
             <th>RDI</th>
-            <th>Procent uppfyllt</th>
+            <!-- <th>Procent uppfyllt</th> -->
           </tr>
         </thead>
         <tbody>
@@ -141,6 +141,7 @@ export default {
       users: [],
       nutrients: [],
       optNutrients: [],
+      percentage: [],
       fat: '',
       carbs: '',
       protein: '',
@@ -148,6 +149,12 @@ export default {
     };
   },
   methods: {
+    // getPercentage() {
+    //   for(i=0; i = this.nutrients.lenght(); i++){
+    //     this.percentage[i] = ( this.optNutrients[i]  /this.nutrients[i] ) * 100;
+    //     console.log(this.percentage);
+    //   }
+    // },
     receptOpti() {
       this.showOptRecipe = true;
       this.$http.get(`http://localhost:9000/recipe/optimize/user/${this.getRecipe}?userName=${this.getUser}`)
@@ -155,7 +162,7 @@ export default {
           this.optrecipes = response.body;
           this.ingredients = response.body.ingredients;
           this.optNutrients = response.body.nutrients;
-          console.log(this.optNutrients);
+          console.log(response.body);
           if (this.optrecipes.portions > 1) { this.plural = 'er'; }
           this.fat = ((this.optrecipes.fat * 9) /
           this.optrecipes.energyKcal) * 100;
@@ -172,14 +179,17 @@ export default {
             this.nutrients = response.body.nutrients;
             console.log(response.body);
           });
+      // getPercentage();
     },
     fetchRecipes() {
       this.$http.get('http://localhost:9000/recipes')
         .then((response) => {
           this.recipes = response.body;
         });
-    }
+    },
   },
+
+
   created() {
     this.fetchRecipes();
   },

@@ -30,6 +30,10 @@
             <option value="FEMALE">Kvinna</option>
           </select>
         </div>
+        <div class="form-group">
+          <label class="control-label">Vikt:</label>
+          <input type="number" class="form-control" v-model="form.weight" placeholder="kg">
+        </div>
         <!-- <div class="form-group">
           <label class="control-label">Kön:</label>
           <label class="radio">
@@ -44,10 +48,6 @@
       </div>
 
       <div class="col-md-6">
-        <div class="form-group">
-          <label class="control-label">Vikt:</label>
-          <input type="number" class="form-control" v-model="form.weight" placeholder="kg">
-        </div>
         <div class="form-group">
           <label class="control-label">Längd:</label>
           <input type="number" class="form-control" v-model="form.height" placeholder="cm">
@@ -91,7 +91,7 @@
 <!-- Loading component -->
 <div v-if="showLoading" class="container">
   <div class="row">
-    <h2 class="text-center text-danger">Användare tillagd</h2>
+    <h2 class="text-center text-danger">Användare {{user}} tillagd</h2>
   </div>
 </div>
 </div>
@@ -135,7 +135,7 @@ export default {
         goal: 'Välj'
       },
       recipes: [],
-      users: []
+      user: '',
     };
   },
   methods: {
